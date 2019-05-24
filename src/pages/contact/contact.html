@@ -1,17 +1,41 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
+    <ion-title>Nova Rotina</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+<ion-content padding>
+  <h1 class="titulo_rotina">INSIRA A SUA ROTINA</h1>
+
+  <div class="descricao_rotina">
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      <ion-label fixed>Rotina: </ion-label>
+      <ion-input type="text" value=""></ion-input>
     </ion-item>
-  </ion-list>
+  </div>
+  <ion-item>
+    <ion-label>Início: </ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate1">
+    </ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Fim: </ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate2">
+    </ion-datetime>
+  </ion-item>
+  
+  <ion-row>
+    <button ion-button full (click)="tirarFoto()">Tirar Foto</button>
+    <img *ngIf="imagem" [src]="imagem">
+
+    <button ion-button full>Gravar Audio</button>
+  </ion-row>
+  
+  <div class="butao_salva">
+    <button ion-button color="secondary" full>Salvar</button>
+  </div>
+  <div class="butao_cancela">
+    <button ion-button color="danger" full>Cancelar</button>
+  </div>
 </ion-content>

@@ -3,34 +3,40 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
+import { FeedPage } from '../pages/feed/feed';
 import { HomePage } from '../pages/home/home';
+import { IntroPageModule } from '../pages/intro/intro.module';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera/ngx';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    FeedPage,
     ContactPage,
     HomePage,
     TabsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IntroPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    AboutPage,
+    MyApp,
+    FeedPage,
     ContactPage,
     HomePage,
     TabsPage
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
